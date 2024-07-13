@@ -1,6 +1,8 @@
-export const ProductSummary = ({ display, title, price }) => {
+import React from 'react';
+
+export const ProductPreview = ({ display, title, price }) => {
     return (
-        <>
+        <div class="col-lg-4">
             <div class="item">
                 <div class="thumb">
                     <div class="hover-content">
@@ -10,11 +12,11 @@ export const ProductSummary = ({ display, title, price }) => {
                             <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
                         </ul>
                     </div>
-                    <img src={display} alt={title} />
+                    <img className="productImg" src={display} />
                 </div>
                 <div class="down-content">
                     <h4>{title}</h4>
-                    <span>{price}</span>
+                    <span>${price}</span>
                     <ul class="stars">
                         <li><i class="fa fa-star"></i></li>
                         <li><i class="fa fa-star"></i></li>
@@ -24,6 +26,6 @@ export const ProductSummary = ({ display, title, price }) => {
                     </ul>
                 </div>
             </div>
-        </>
-    )
-}
+        </div>
+    );
+};

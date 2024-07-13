@@ -1,47 +1,41 @@
 import { Link, useNavigate } from "react-router-dom"
+import React, { useEffect, useState } from 'react';
 import logo from '../assets/images/logo.png'
+import { getAllCategories } from "../api";
 
 export const Nav = () => {
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
+    const [categories, setCategories] = useState([]);
+
+    async function fetchCategories() {
+        const allCategories = await getAllCategories();
+        setCategories(allCategories);
+    }
+
+    useEffect(() => {
+        fetchCategories();
+        console.log(categories)
+    }, []);
 
     return (
-        <header class="header-area header-sticky">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <nav class="main-nav">
-                            <a href="index.html" class="logo">
+        <header className="header-area header-sticky">
+            <div className="container">
+                <div className="row">
+                    <div className="col-12">
+                        <nav className="main-nav">
+                            <a href="index.html" className="logo">
                                 <img src={logo} />
                             </a>
-                            <ul class="nav">
-                                <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-                                <li class="scroll-to-section"><a href="#men">Men's</a></li>
-                                <li class="scroll-to-section"><a href="#women">Women's</a></li>
-                                <li class="scroll-to-section"><a href="#kids">Kid's</a></li>
-                                <li class="submenu">
-                                    <a href="javascript:;">Pages</a>
-                                    <ul>
-                                        <li><a href="about.html">About Us</a></li>
-                                        <li><a href="products.html">Products</a></li>
-                                        <li><a href="single-product.html">Single Product</a></li>
-                                        <li><a href="contact.html">Contact Us</a></li>
-                                    </ul>
-                                </li>
-                                <li class="submenu">
-                                    <a href="javascript:;">Features</a>
-                                    <ul>
-                                        <li><a href="#">Features Page 1</a></li>
-                                        <li><a href="#">Features Page 2</a></li>
-                                        <li><a href="#">Features Page 3</a></li>
-                                        <li><a rel="nofollow" href="https://templatemo.com/page/4" target="_blank">Template Page 4</a></li>
-                                    </ul>
-                                </li>
-                                <li class="scroll-to-section"><a href="#explore">Explore</a></li>
+                            <ul className="nav">
+                                {categories?.length > 0 ?
+                                    categories.map(item => {
+                                        return <li class="scroll-to-section">
+                                            <Link to={`/product/${item}`}>{item}</Link>
+                                        </li>
+                                    })
+                                    : null}
                             </ul>
-                            <a class='menu-trigger'>
-                                <span>Menu</span>
-                            </a>
                         </nav>
                     </div>
                 </div>

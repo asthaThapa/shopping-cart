@@ -1,4 +1,5 @@
 import { Nav } from "../components/Nav";
+import { Footer } from "../components/Footer";
 import { LatestTrend } from "../components/LatestTrend";
 import leftBanner from "../assets/images/left-banner-image.jpg";
 import bannerRight01 from "../assets/images/baner-right-image-01.jpg";
@@ -119,6 +120,7 @@ export const Home = () => {
             </div>
 
             <LatestTrend />
+            <Footer />
         </>
     )
 }

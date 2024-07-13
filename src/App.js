@@ -1,4 +1,5 @@
 import mainRoutes from "./routes";
+import './App.css'
 import './assets/css/flex-slider.css'
 import './assets/css/font-awesome.css'
 import './assets/css/lightbox.css'
