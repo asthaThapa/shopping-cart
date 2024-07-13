@@ -8,3 +8,8 @@ export const getProductsByCategory = (category) => {
         .then(res => res.json())
 }
 
+export const getProductsById = (productId) => {
+    return fetch(`https://fakestoreapi.com/products/${productId}`)
+        .then(res => res.json())
+}
+

@@ -45,7 +45,7 @@ export const ProductList = () => {
                     ) : (
                         products?.length > 0 ?
                             products.map(product => (
-                                <ProductPreview key={product.id} display={product.image} title={product.title} price={product.price} />
+                                <ProductPreview id={product.id} display={product.image} title={product.title} price={product.price} />
                             )) : (
                                 <div>No products found</div>
                             )
