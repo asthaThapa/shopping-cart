@@ -18,6 +18,7 @@ export const Nav = () => {
         console.log(categories)
     }, []);
 
+
     return (
         <header className="header-area header-sticky">
             <div className="container">

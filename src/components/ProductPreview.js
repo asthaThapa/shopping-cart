@@ -14,7 +14,11 @@ export const ProductPreview = ({ id, display, title, price }) => {
                                 </Link>
                             </li>
                             <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
+                            <li>
+                                <Link to={`/single-product/${id}`}>
+                                    <i class="fa fa-shopping-cart"></i>
+                                </Link>
+                            </li>
                         </ul>
                     </div>
                     <img className="productImg" src={display} />

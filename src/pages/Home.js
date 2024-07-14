@@ -6,6 +6,7 @@ import bannerRight01 from "../assets/images/baner-right-image-01.jpg";
 import bannerRight02 from "../assets/images/baner-right-image-02.jpg";
 import bannerRight03 from "../assets/images/baner-right-image-03.jpg";
 import bannerRight04 from "../assets/images/baner-right-image-04.jpg";
+import { CartBlock } from "../components/CartBlock";
 
 export const Home = () => {
     return (
@@ -121,6 +122,7 @@ export const Home = () => {
 
             <LatestTrend />
             <Footer />
+            <CartBlock />
         </>
     )
 }

@@ -5,6 +5,7 @@ import { OrderSection } from "../components/OrderSection";
 import { useParams } from "react-router-dom";
 import { getProductsById } from "../api";
 import { useEffect, useState } from "react";
+import { CartBlock } from "../components/CartBlock";
 
 export const SingleProduct = () => {
     const { pid } = useParams();
@@ -38,6 +39,7 @@ export const SingleProduct = () => {
                 />
             )}
             <Footer />
+            <CartBlock />
         </>
     );
 };
