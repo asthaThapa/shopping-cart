@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export const ProductPreview = ({ id, display, title, price }) => {
+export const ProductPreviewList = ({ id, display, title, price }) => {
     return (
         <div class="col-lg-4">
             <div class="item">

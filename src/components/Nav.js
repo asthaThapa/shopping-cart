@@ -25,9 +25,9 @@ export const Nav = () => {
                 <div className="row">
                     <div className="col-12">
                         <nav className="main-nav">
-                            <a href="index.html" className="logo">
+                            <Link to={`/`}>
                                 <img src={logo} />
-                            </a>
+                            </Link>
                             <ul className="nav">
                                 {categories?.length > 0 ?
                                     categories.map(item => {

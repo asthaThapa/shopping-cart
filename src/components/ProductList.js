@@ -1,4 +1,4 @@
-import { ProductPreview } from './ProductPreview';
+import { ProductPreviewList } from './ProductPreviewList';
 import { getProductsByCategory } from "../api";
 import React, { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom";
@@ -45,7 +45,7 @@ export const ProductList = () => {
                     ) : (
                         products?.length > 0 ?
                             products.map(product => (
-                                <ProductPreview id={product.id} display={product.image} title={product.title} price={product.price} />
+                                <ProductPreviewList id={product.id} display={product.image} title={product.title} price={product.price} />
                             )) : (
                                 <div>No products found</div>
                             )

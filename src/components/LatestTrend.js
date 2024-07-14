@@ -1,4 +1,4 @@
-import { ProductPreview } from "./ProductPreview";
+import { ProductPreviewList } from "./ProductPreviewList";
 import men from '../assets/images/men-01.jpg'
 export const LatestTrend = () => {
     return (
@@ -19,7 +19,7 @@ export const LatestTrend = () => {
                         <div class="col-lg-12">
                             <div class="men-item-carousel">
                                 <div class="owl-men-item owl-carousel">
-                                    <ProductPreview display={men} title="Classic Spring" price='$120.00' />
+                                    <ProductPreviewList display={men} title="Classic Spring" price='$120.00' />
                                 </div>
                             </div>
                         </div>
