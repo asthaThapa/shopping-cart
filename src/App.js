@@ -7,7 +7,6 @@ import './assets/css/owl-carousel.css'
 import './assets/css/bootstrap.min.css'
 import './assets/css/templatemo-hexashop.css'
 
-
 function App() {
   return mainRoutes
 }
