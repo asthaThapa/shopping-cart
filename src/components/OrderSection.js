@@ -48,7 +48,14 @@ export const OrderSection = ({ pid, image, title, description, price }) => {
                             </div>
                             <div className="total">
                                 <h4>Total: ${totalPrice.toFixed(2)}</h4>
-                                <AddToCartBtn image={image} title={title} description={description} pid={pid} count={cartCounter} amount={totalPrice} />
+                                <AddToCartBtn
+                                    image={image}
+                                    title={title}
+                                    description={description}
+                                    pid={pid}
+                                    count={cartCounter}
+                                    singlePrice={price}
+                                    amount={totalPrice} />
                             </div>
                         </div>
                     </div>

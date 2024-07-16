@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { increment, incrementByAmount, addItem } from '../slice/cartSlice';
 
-export const AddToCartBtn = ({ pid, image, title, description, count, amount }) => {
+export const AddToCartBtn = ({ pid, image, title, description, count, singlePrice, amount }) => {
     const dispatch = useDispatch();
     return (
         <button className="main-border-button" onClick={() => {
@@ -12,6 +12,7 @@ export const AddToCartBtn = ({ pid, image, title, description, count, amount }) 
                 image: image,
                 title: title,
                 description: description,
+                singlePrice: singlePrice,
                 totalPrice: amount,
                 quantity: count
             }));
