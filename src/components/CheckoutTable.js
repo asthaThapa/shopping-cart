@@ -19,7 +19,6 @@ export const CheckoutTable = () => {
                                         key={item.itemId}
                                         image={item.image}
                                         title={item.title}
-                                        description={item.description}
                                         itemId={item.itemId}
                                         quantity={item.quantity}
                                         totalPrice={item.totalPrice}
