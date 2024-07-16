@@ -26,12 +26,16 @@ export const SingleProduct = () => {
         return <div>Loading...</div>;
     }
 
+    const title = "Check Our Products"
+    const description = "Awesome &amp; Creative HTML CSS layout by TemplateMo"
+
     return (
         <>
             <Nav />
-            <ProductHeader />
+            <ProductHeader title={title} description={description} />
             {item && (
                 <OrderSection
+                    pid={pid}
                     image={item.image}
                     title={item.title}
                     description={item.description}

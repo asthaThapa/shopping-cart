@@ -1,8 +1,8 @@
 import { AddToCartBtn } from "./AddToCartBtn";
 import { useState } from "react";
 
-export const OrderSection = ({ image, title, description, price }) => {
-    const [cartCounter, setCartCounter] = useState(1);
+export const OrderSection = ({ pid, image, title, description, price }) => {
+    const [cartCounter, setCartCounter] = useState(0);
     const [totalPrice, setTotalPrice] = useState(price);
 
     function calculateTotal(value) {
@@ -48,7 +48,7 @@ export const OrderSection = ({ image, title, description, price }) => {
                             </div>
                             <div className="total">
                                 <h4>Total: ${totalPrice.toFixed(2)}</h4>
-                                <AddToCartBtn count={cartCounter} amount={totalPrice} />
+                                <AddToCartBtn image={image} title={title} description={description} pid={pid} count={cartCounter} amount={totalPrice} />
                             </div>
                         </div>
                     </div>
