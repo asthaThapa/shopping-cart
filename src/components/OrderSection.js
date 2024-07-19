@@ -2,7 +2,7 @@ import { AddToCartBtn } from "./AddToCartBtn";
 import { useState } from "react";
 
 export const OrderSection = ({ pid, image, title, description, price }) => {
-    const [cartCounter, setCartCounter] = useState(0);
+    const [cartCounter, setCartCounter] = useState(1);
     const [totalPrice, setTotalPrice] = useState(price);
 
     function calculateTotal(value) {

@@ -1,12 +1,12 @@
 import { useDispatch } from 'react-redux';
-import { increment, incrementByAmount, addItem } from '../slice/cartSlice';
+import { increaseCartItem, increaseTotal, addItem } from '../slice/cartSlice';
 
 export const AddToCartBtn = ({ pid, image, title, description, count, singlePrice, amount }) => {
     const dispatch = useDispatch();
     return (
         <button className="main-border-button" onClick={() => {
-            dispatch(increment(count));
-            dispatch(incrementByAmount(amount));
+            dispatch(increaseCartItem(count));
+            dispatch(increaseTotal(amount));
             dispatch(addItem({
                 itemId: pid,
                 image: image,

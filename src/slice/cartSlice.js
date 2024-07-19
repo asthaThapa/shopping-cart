@@ -3,35 +3,42 @@ import { createSlice } from '@reduxjs/toolkit';
 export const cartSlice = createSlice({
     name: 'cart',
     initialState: {
-        value: 0,
-        amount: 0.0,
+        cartItemCount: 0,
+        totalAmount: 0.0,
         checkoutItems: [],
     },
     reducers: {
-        increment: (state, action) => {
-            state.value += action.payload;
+        increaseCartItem: (state, action) => {
+            state.cartItemCount += action.payload;
         },
-        decrement: (state, action) => {
-            state.value -= action.payload;
+        decreaseCartItem: (state, action) => {
+            if (action.payload > 0) {
+                state.cartItemCount -= action.payload;
+            }
         },
-        incrementByAmount: (state, action) => {
-            state.amount += action.payload;
+        increaseTotal: (state, action) => {
+            state.totalAmount += action.payload;
         },
         decrementByAmount: (state, action) => {
-            state.amount -= action.payload;
+            state.totalAmount -= action.payload;
         },
         updateItemQuantity: (state, action) => {
             const { itemId, updateAction } = action.payload;
             const selectedItem = state.checkoutItems.find(item => item.itemId === itemId);
 
+            var tempAmt = state.totalAmount - selectedItem.totalPrice
+
             if (selectedItem) {
                 if (updateAction === 'increase') {
                     selectedItem.quantity += 1;
+                    state.cartItemCount += 1;
                 } else if (updateAction === 'decrease' && selectedItem.quantity > 0) {
                     selectedItem.quantity -= 1;
+                    state.cartItemCount -= 1;
                 }
 
                 selectedItem.totalPrice = selectedItem.singlePrice * selectedItem.quantity;
+                state.totalAmount = (tempAmt + selectedItem.totalPrice).toFixed(2)
             }
         },
 
@@ -47,7 +54,7 @@ export const cartSlice = createSlice({
             }
 
             state.value += quantity;
-            state.amount += totalPrice;
+            state.totalAmount += totalPrice;
         },
         removeItem: (state, action) => {
             const { itemId } = action.payload;
@@ -56,7 +63,7 @@ export const cartSlice = createSlice({
             if (itemIndex !== -1) {
                 const item = state.checkoutItems[itemIndex];
                 state.value -= item.quantity;
-                state.amount -= item.totalPrice;
+                state.totalAmount -= item.totalPrice;
 
                 state.checkoutItems.splice(itemIndex, 1);
             }
@@ -64,6 +71,13 @@ export const cartSlice = createSlice({
     },
 });
 
-export const { increment, decrement, incrementByAmount, decrementByAmount, addItem, removeItem, updateItemQuantity } = cartSlice.actions;
+export const {
+    increaseCartItem,
+    decreaseCartItem,
+    increaseTotal,
+    addItem,
+    removeItem,
+    updateItemQuantity
+} = cartSlice.actions;
 
 export default cartSlice.reducer;
